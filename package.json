@@ -7,7 +7,8 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:seed": "pnpm run db:cleanup && pnpm run db:migrate && ts-node prisma/seed/index.ts",
-    "db:cleanup": "rm -rf prisma/dev.db"
+    "db:cleanup": "rm -rf prisma/dev.db",
+    "start": "ts-node src/"
   },
   "keywords": [],
   "author": "",

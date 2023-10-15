@@ -8,36 +8,7 @@ datasource db {
 }
 
 model Account {
-  id              String           @id @default(uuid())
-  username        String
-  password        String
-  projectAccounts ProjectAccount[]
-
-  @@unique([username])
-}
-
-model Project {
-  id       String           @id @default(uuid())
-  title    String
-  accounts ProjectAccount[]
-  roles    ProjectRole[]
-
-  @@unique([title])
-}
-
-model ProjectRole {
-  id        String  @id @default(uuid())
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  title     String
-
-  @@unique([title])
-}
-
-model ProjectAccount {
-  id        String  @id @default(uuid())
-  accountId String
-  account   Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  id       String @id
+  username String
+  password String
 }
